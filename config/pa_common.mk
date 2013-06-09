@@ -64,8 +64,8 @@ PRODUCT_COPY_FILES += \
     vendor/pa/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/backup.conf
 
 PA_VERSION_MAJOR = 3
-PA_VERSION_MINOR = 5
-PA_VERSION_MAINTENANCE = 6
+PA_VERSION_MINOR = 6
+PA_VERSION_MAINTENANCE = 0
 PA_PREF_REVISION = 1
 
 TARGET_CUSTOM_RELEASETOOL :=source vendor/pa/tools/squisher
@@ -77,16 +77,3 @@ else
     PA_VERSION := $(TARGET_PRODUCT)-$(VERSION)-$(shell date +%0d%^b%Y-%H%M%S)
 endif
 
-PRODUCT_PROPERTY_OVERRIDES += \
-  ro.modversion=$(PA_VERSION) \
-  ro.pa.family=$(PA_CONF_SOURCE) \
-  ro.pa.version=$(VERSION) \
-  ro.papref.revision=$(PA_PREF_REVISION)
-
-# goo.im properties
-ifneq ($(DEVELOPER_VERSION),true)
-    PRODUCT_PROPERTY_OVERRIDES += \
-      ro.goo.developerid=paranoidandroid \
-      ro.goo.rom=paranoidandroid \
-      ro.goo.version=$(shell date +%s)
-endif

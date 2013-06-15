@@ -77,3 +77,8 @@ else
     PA_VERSION := $(TARGET_PRODUCT)-$(VERSION)-$(shell date +%0d%^b%Y-%H%M%S)
 endif
 
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.modversion=$(PA_VERSION) \
+  ro.pa.family=$(PA_CONF_SOURCE) \
+  ro.pa.version=$(VERSION) \
+  ro.papref.revision=$(PA_PREF_REVISION)
